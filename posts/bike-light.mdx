@@ -1,0 +1,55 @@
+---
+title: My bike light runs Linux
+description: "And the app it came with sucks."
+date: Jan 22 2024
+---
+
+According to the TAC, "In the last five years, 55 bicycle riders have been killed on Victorian roads – an average of 11 each year." and "Killed in same direction crashes (40%)"
+
+I was recently gifted a rear bike light with a camera built-in. Maybe it will catch the numberplate of the guy who kills me and drives off, or maybe it will just be fun to play with. Unfortunately the app it comes with isn't the greatest piece of UI design ever created, so here are some improvements I'd like to make to the overall experience.
+
+To start with, to get recordings from the camera, you can either remove the micro-SD card and plug it into your computer, or connect to a wifi hotspot which is constantly broadcasting from the light whenever it's turned on and recording, and there's apparently no way to change the either the SSID or password.
+
+Here are the improvements I'd like to make:
+
+- [x] Stream from the camera without using the app
+- [ ] Get previously recorded video from the camera without using the default app
+- [ ] Change the default wifi config
+- [ ] Make a better app (iOS only for now because I've never used Android.)
+- [ ] Okay fine an Android app too, it can't be that hard (ref: [this post](/posts/robot-vacuum))
+
+---
+
+<h1>1. How does this thing work?</h1>
+When connecting to the light's wifi network (CARDV_####), you're given a 192.168.1.# address.
+
+nmap 192.168.1.1 gives me the following:
+
+
+RTSP stands for Real-Time Streaming Protocol. VLC can open RTSP links. Unfortunately, there doesn't appear to be a way to find the exact link the camera is broadcasting from.
+
+A few minutes of Googling default RTSP links for various dashcam models didn't yield any working results. But maybe the company will just tell me the link?
+
+
+That was easy.
+
+And... success! I can stream video to VLC on Mac or iPhone. So maybe the app is already created and it's just VLC? No, I still need a way to get previously recorded video from the camera.
+
+
+---
+
+<h1>Telnet</h1>
+nmap listed a telnet port open. Let's see if it works?
+
+But what's the username and password? root? nothing???
+
+Yep.
+
+A quick ls lists the following directories. And it looks like the micro-SD card is mounted at /mnt/mmc/
+
+So I should be able to access photos and videos just like directly from the SD card at e.g. http://192.168.1.1/mnt/mmc/Normal/F/REC20240120-171923-1884.mp4
+
+More success!
+
+
+---
