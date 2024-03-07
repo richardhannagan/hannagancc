@@ -1,6 +1,13 @@
 module.exports = {
-    images: {
-      domains: ['ghchart.rshah.org'],
-    },
-  };
-  
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'ghchart.rshah.org',
+        port: '',
+        pathname: '/richardhannagan',
+      },
+    ],
+    dangerouslyAllowSVG: true
+  },
+};
