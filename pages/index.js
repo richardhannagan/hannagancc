@@ -32,8 +32,6 @@ export default function Index({ posts, globalData }) {
           width={663}
           height={104}
         />
-
-        <img src="http://ghchart.rshah.org/richardhannagan" alt="Richard Hannagans's GitHub Contributions Graph" />
         <br></br>
         <ul className="w-full">
           {posts.map((post) => (
