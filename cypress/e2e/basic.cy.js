@@ -4,6 +4,6 @@ describe('sample render test', () => {
   });
 
   it('displays the title text', () => {
-    cy.get('h1').contains('Developer Blog');
+    cy.get('h1').contains('developer blog');
   });
 });
