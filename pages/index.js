@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Head from 'next/head';
 import { getPosts } from '../utils/mdx-utils';
+import Image from 'next/image'
 
 import Footer from '../components/Footer';
 import Header from '../components/Header';
@@ -25,6 +26,13 @@ export default function Index({ posts, globalData }) {
           {globalData.blogTitle}
         </h1>
         <h2 className="text-2xl dark:text-white text-center mb-2">github contributions</h2>
+        <Image
+          src="http://ghchart.rshah.org/richardhannagan"
+          alt="Richard Hannagans's GitHub Contributions Graph"
+          width={663}
+          height={104}
+        />
+
         <img src="http://ghchart.rshah.org/richardhannagan" alt="Richard Hannagans's GitHub Contributions Graph" />
         <br></br>
         <ul className="w-full">
