@@ -27,7 +27,7 @@ export default function Index({ posts, globalData }) {
         </h1>
         <h2 className="text-2xl dark:text-white text-center mb-2">github contributions</h2>
         <Image
-          src="http://ghchart.rshah.org/richardhannagan"
+          src="https://ghchart.rshah.org/richardhannagan"
           alt="Richard Hannagans's GitHub Contributions Graph"
           width={663}
           height={104}
