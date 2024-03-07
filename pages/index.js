@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Head from 'next/head';
 import { getPosts } from '../utils/mdx-utils';
 
 import Footer from '../components/Footer';
@@ -7,6 +8,23 @@ import Layout, { GradientBackground } from '../components/Layout';
 import ArrowIcon from '../components/ArrowIcon';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
+
+const MyPage = () => {
+  return (
+    <div>
+      {/* Include the Head component */}
+      <Head>
+        {/* Add the favicon link tag */}
+        <link rel="icon" href="/favicon.ico" />
+        {/* You can include additional head elements if needed */}
+      </Head>
+
+      {/* Rest of your page content */}
+    </div>
+  );
+};
+
+export default MyPage;
 
 export default function Index({ posts, globalData }) {
   return (
