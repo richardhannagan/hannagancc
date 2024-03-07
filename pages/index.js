@@ -9,23 +9,6 @@ import ArrowIcon from '../components/ArrowIcon';
 import { getGlobalData } from '../utils/global-data';
 import SEO from '../components/SEO';
 
-const MyPage = () => {
-  return (
-    <div>
-      {/* Include the Head component */}
-      <Head>
-        {/* Add the favicon link tag */}
-        <link rel="icon" href="/favicon.ico" />
-        {/* You can include additional head elements if needed */}
-      </Head>
-
-      {/* Rest of your page content */}
-    </div>
-  );
-};
-
-export default MyPage;
-
 export default function Index({ posts, globalData }) {
   return (
     <Layout>
