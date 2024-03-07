@@ -14,7 +14,7 @@ export default function Index({ posts, globalData }) {
   return (
     <Layout>
       <Head>
-        <link rel="icon" href="../public/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.png" type="image/x-icon" />
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
