@@ -24,13 +24,22 @@ export default function Index({ posts, globalData }) {
         <h1 className="text-3xl lg:text-5xl text-center mb-12">
           {globalData.blogTitle}
         </h1>
-        <h2 className="text-2xl dark:text-white text-center mb-2">github contributions</h2>
+        <h2 className="text-2xl dark:text-white text-center mb-2">my github contributions</h2>
         <Image
           src="https://ghchart.rshah.org/richardhannagan"
           alt="Richard Hannagans's GitHub Contributions Graph"
           width={663}
           height={104}
         />
+        <br></br>
+        <h2 className="text-2xl dark:text-white text-center mb-2">add me on linkedin</h2>
+          <Image
+            src="/linkedin-qr.PNG"
+            alt="LinkedIn QR code"
+            width={200}
+            height={200}
+            className="mx-auto"
+          />
         <br></br>
         <ul className="w-full">
           {posts.map((post) => (
