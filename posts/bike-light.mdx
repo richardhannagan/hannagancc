@@ -30,7 +30,6 @@ RTSP stands for Real-Time Streaming Protocol. VLC can open RTSP links. Unfortuna
 
 A few minutes of Googling default RTSP links for various dashcam models didn't yield any working results. But maybe the company will just tell me the link?
 
-
 That was easy.
 
 And... success! I can stream video to VLC on Mac or iPhone. So maybe the app is already created and it's just VLC? No, I still need a way to get previously recorded video from the camera.
@@ -39,6 +38,15 @@ And... success! I can stream video to VLC on Mac or iPhone. So maybe the app is 
 ---
 
 <h1>Telnet</h1>
+
+History of telnet at Bell Labs
+
+Telnet description from Podcast:
+If you had full access to a computer during your time slice, you didn’t need a punch card system, you could use a teletype terminal. Teletype terminals looked like large typewriters combined with printers and maybe a phone line, and they were originally used for sending telegraphs, I think. You could type in commands and send it directly to the computer using the telephone line and then have the results printed out right away right above you. And with a timeshare system, you could hook up a number of these to a single computer and split time between them.
+
+Teletype terminals communicated over telnet, a protocol that’s still in use to this day, although I guess SSH has largely replaced it. The ASCII format of text documents was created for these teletype machines, and that’s why it has weird control characters like the end of the transmission. This was such an interesting time. It was the birth of these interactive computers. Anyways, back to the Multics project
+ref: https://corecursive.com/brian-kernighan-unix-bell-labs1/
+
 nmap listed a telnet port open. Let's see if it works?
 
 But what's the username and password? root? nothing???
