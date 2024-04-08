@@ -1,0 +1,67 @@
+---
+title: making an e-ink tide chart on a raspberry pi pico
+description: ""
+date: Mar 18 2024
+---
+
+#### Introduction
+
+A couple of weeks ago I went to a Python meetup event, and learned about MicroPython, a stripped down version of Python designed to run on microcontrollers. Developed by a guy in Geelong.
+
+I've had an idea for a while to build a tide-computer of sorts. Why? Where I live there's a canal that's tidal, of course.  A walk along the canal at high tide is like a walk along a beatiful river in Italy. But a visit at low tide smells like trash. A simple screen next to the front door letting you know whether it's a good idea to visit the canal before leaving the house seems it could be just as important as knowing the weather before you leave the house.
+
+[pic](/public/canal1.jpeg)
+
+The obvious question is why do I need a whole device dedicated to this one purpose? And my non-answer-answer is why does one need a watch that tells the time and nothing else, when your phone can do that and almost anything else you want.
+
+In fact, my phone already does this with a relatively clean looking home screen widget. But if you open the app it doesn't display the tide immediately, it first displays an ad. Additionally I just think e-paper/e-ink screens are pretty neat. See: Amazon Kindle.
+
+So, I purchased a Raspberry Pi Pico and a small 2 inch e-ink screen. People talk about these costing $4 which doesn't really seem to be true but I ended up paying $11.55 plus shipping for the version with pre-soldered headers and with built-in Wifi and Bluetooth, which is pretty ridiculous when you can't get a pint of beer for that little any more.
+
+So after a couple of days waiting for the postman to pretend I wasn't home and a visit to the post office, here's the development process:
+
+####  Setting up an IDE
+
+The documentation suggests using Thonny, which I already had setup on my computer to play with some (non-micro) Python scripting. It has a neat mode where you can directly interact with the REPL on the Pico.
+
+**Installing Micropython**
+
+####  Getting tide data
+bom Your access is blocked due to the detection of a potential automated access request. The Bureau of Meteorology website does not support web scraping: if you are trying to access Bureau data through automated means, you should stop.
+
+####  Getting the Pico online
+following instructions to use wifi
+accidentally posting my wifi password on github
+
+####  Getting the LED to flash
+
+3 lines gets flashes the on-board LED on the Pico W model:
+
+```
+import machine
+led = machine.Pin("LED", machine.Pin.OUT)
+led.toggle()
+```
+
+This will come in handy later for...
+
+####  Debugging
+debugging with the LED
+clock not setting when unplugged
+timezones
+But if ur running the things from computer it sets its clock that was why
+It works if I plug the pico into the computer but if I just plug it into a usb power thing only it stops at like     current_time equals utime dot localtime but I dunno why lmk x
+
+####  Testing (what's the difference between debugging and testing?)
+
+
+####  The finished (for now) product
+So it works
+
+[pic](/public/pico.jpeg)
+
+***printscreens***
+
+#### Conclusion
+
+For now it's plugged into my Ikea lamp which has a built in USB-A port for a quick glance in the morning. I look forward to 3D printing a case for it, coming up with an elegant solution for powering it (assuming it draws almost no power) and mounting it on a wall.

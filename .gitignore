@@ -38,5 +38,25 @@ yarn-error.log*
 
 #posts
 /posts/airtag.mdx
+/posts/containers.mdx
+/posts/example-post.mdx
+/posts/ifw-site.mdx
+/posts/ide-setup.mdx
+/posts/maintenance-app.mdx
+/posts/marketplace-ml.mdx
+/posts/offline-gpt.mdx
+/posts/python.mdx
+/posts/raspberry-pi.mdx
+/posts/robot-vacuum.mdx
+/posts/sheldon-gpt.mdx
+/posts/trello.mdx
+/posts/watch-app.mdx
+/posts/watering.mdx
+/posts/website-next-js.mdx
+/posts/widget.mdx
+
+#public
 /public/russia.pdf
 /public/russia.png
+
+bike-light promo testing portainer pdf  passwords  micropython  f1tv

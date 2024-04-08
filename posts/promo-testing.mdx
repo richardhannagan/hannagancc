@@ -1,0 +1,44 @@
+---
+title: writing tests with playwright
+description: "but the tests are 'what is every possible dominos coupon'"
+date: Mar 12 2024
+---
+
+I recently learned about testing when I succesfully deployed this blog, but with failed tests. It turned out the integrated tests were simply navigating to my website, and making sure the title could be read. Because if the title can be read and is correct, everything must be working right? Makes sense. Anyway my tests weren't passing because I changed the title of the website but didn't change the title the tests were looking for.
+
+If you can use testing to navigate to a website and read it, what else can you do?
+
+Thanks for asking, and yes you can use the magic of testing to nagivate to the Dominos pizza website, type in every possibile coupon code and report back which ones work.
+
+For this little project I used Playwright, created to "enable reliable end-to-end testing for modern web apps."
+
+#### Here's the code I've come up with:
+
+```
+import { test, expect } from '@playwright/test';
+
+test('test', async ({ page }) => {
+  await page.goto('https://www.dominos.com.au/');
+  await page.getByRole('link', { name: 'Pick Up' }).click();
+  await page.getByTestId('searchText.input').click();
+  await page.getByTestId('searchText.input').fill('3000');
+  await page.getByTestId('pickup-store-search.address.wrapper.carlton (vic)').getByTestId('pickup-store-search.address.name').click();
+  await page.getByTestId('start-order-now-button').click();
+  await page.getByTestId('cross').click();
+  await page.getByTestId('basket-container.voucher-input.input.input').click();
+  for (let i = 0; i <= 999999; i++) {
+    const voucherCode = i.toString().padStart(6, '0');
+    
+    await page.getByTestId('basket-container.voucher-input.input.input').fill(voucherCode);
+    await page.getByTestId('basket-container.voucher-input.input.input').press('Enter');
+    await page.getByTestId('basket-container.voucher-input.input.input').press('Meta+a');
+  }
+  });
+  ```
+Similar to a person who forget his combination lock, the for loop tries every combination from 000000 to 999999, one by one.
+
+####  Other important considerations
+
+I've only run it testing from 000000 to 000010 because Dominos might catch on to what I'm doing and ban my IP address, then I'd have to learn to cook. So, running this script behind a VPS is probably a good idea, as well as adding some logic to make it take longer and randomise the time between attempts, so that theoretically my script might look like a really bored person manually typing coupon codes one after the other for hours on end.
+
+Refer to React talk Cypress vs Playwright and Cypress testing in site
