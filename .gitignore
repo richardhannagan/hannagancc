@@ -37,6 +37,6 @@ yarn-error.log*
 .netlify
 
 #posts
-posts/airtag.mdx
-public/russia.pdf
-public/russia.png
+/posts/airtag.mdx
+/public/russia.pdf
+/public/russia.png
