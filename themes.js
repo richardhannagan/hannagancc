@@ -37,11 +37,11 @@ exports.COLOR_THEMES = {
   },
   greenie: {
     colors: {
-      primary: '#C78500',
-      'gradient-1': '#FFCC81',
-      'gradient-2': '#00F37F',
-      'gradient-3': '#00F37F',
-      'gradient-4': '#FFCC81',
+      primary: '#27252d',
+      'gradient-1': '#fffffe',
+      'gradient-2': '#51bb8b',
+      'gradient-3': '#51bb8b',
+      'gradient-4': '#fffffe',
     },
   },
 };
