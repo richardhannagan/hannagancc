@@ -1,10 +1,16 @@
 ---
-title: writing a PDF cover letter by hand
-description: "in plaintext"
-date: Mar 11 2024
+title: writing a PDF cover letter in plaintext
+description: "'stay perfectly still, only I may write to PDF' - adobe"
+date: Apr 30 2024
 ---
 
-Write six objects and a trailer message and you have a PDF:
+After learning how PDFs work, I wrote a cover letter (here's a genericised version) in TextEdit. It looks like this:
+
+![A PDF letter in a Preview window on MacOS](/pdf.png)
+
+Would you also like to write letters in plaintext? Great, here's the code. As you can see it's a lot simpler than you might have expected considering the average PDF you might come across is in the hundreds of kilobytes.
+
+Mine? A miniscule 1,963 bytes. You could store it in the RAM of the Apollo Guidance Computer, twice. Keep scrolling for an explanation of what you're looking at.
 
 ```
 %PDF-1.0
@@ -16,7 +22,7 @@ Write six objects and a trailer message and you have a PDF:
 endobj
 2 0 obj
 << /Type /Page
-   /MediaBox [0 0 612 792]
+   /MediaBox [0 0 595 842]
    /Resources 3 0 R
    /Parent 1 0 R
    /Contents [4 0 R]
@@ -26,7 +32,7 @@ endobj
 << /Font
    << /F0
       << /Type /Font
-         /BaseFont /Times-Roman
+         /BaseFont /Helvetica
          /Subtype /Type1
       >>
    >>
@@ -36,9 +42,62 @@ endobj
 << >>
 stream
 BT
-    /F0 36 Tf
-    50 706 Td
-    (Hello, World!) Tj
+    /F0 12 Tf
+    400 760 Td
+    (My name) Tj
+    0 -20 Td
+    (My phone number) Tj
+    0 -20 Td
+    (Melbourne VIC) Tj
+    0 -20 Td
+    (hello@myemail.com) Tj
+    -350 -50 Td
+    (30 April 2024) Tj
+
+    0 -50 Td
+    (Mr/Mrs Someone) Tj
+    0 -20 Td
+    (Hiring Manager) Tj
+    0 -20 Td
+    (REA/MYOB/etc.) Tj
+
+    0 -50 Td
+    (Dear Mr/Mrs Someone,) Tj
+
+    0 -40 Td
+    (I am writing to express my interest in the [Software Engineer] position at X) Tj
+    0 -20 Td
+    (as advertised on Seek/LinkedIn. Eager to transition into the tech industry, I am) Tj
+    0 -20 Td
+    (drawn to the role due to its alignment with my skills and passion for technology.) Tj
+
+    0 -40 Td
+    (My proficiency in ...) Tj
+    0 -20 Td
+    (..., and strong documentation and) Tj
+    0 -20 Td
+    (scripting skills position me as a candidate well-suited for the dynamic ...) Tj
+    0 -20 Td
+    (landscape. I believe my ability to communicate complex technical concepts effectively) Tj
+    0 -20 Td
+    (and collaborate efficiently makes me an ideal fit for your team.) Tj
+
+    0 -40 Td
+    (I am excited about the opportunity to contribute to X's something) Tj
+    0 -20 Td
+    (initiatives and would appreciate the chance to discuss how my skills align with the role) Tj
+    0 -20 Td
+    (in more detail.) Tj
+
+    0 -40 Td
+    (Thank you for considering my application. I look forward to the possibility of an) Tj
+    0 -20 Td
+    (interview.) Tj
+
+    0 -50 Td
+    (Sincerely,) Tj
+    0 -40 Td
+    (My Name) Tj
 ET
 endstream
 endobj
@@ -54,5 +113,12 @@ startxref
 %%EOF
 ```
 
-Explanation:
+So a PDF (in the original 1.0 spec) needs to contain 6 objects.  An object starts `1 0 obj` and ends with, you guessed it, `endobj`
 
+The first object defines the document, in this case as being one page in length. The second object defines the shape and size of the page, in this case 595 by 842 points, or the size of an A4 page. The third object defines our font as F0, with Helvetica of course being the best font.
+
+Object 4 is the content. So we're first using our earlier defined F0 and size 12, then without the help of an Adobe Acrobat or similar, we need to manually pick points on the page to write text or draw shapes. We start at 400 points from the left of the page and 760 from the bottom, or roughly the top right of the page where you might write your return address on a real letter. For a new line, simply move 20 points down, or -20. When we get to the date we want to go to the left side of the page, so we're moving -350 points to the left and a bigger line break of -50.
+
+The end of the file is a catalog file, followed by a trailer message and finally a cross-reference table, which we're leaving blank.
+
+Thanks for reading. Now, I must go find a typewriter on Marketplace.
